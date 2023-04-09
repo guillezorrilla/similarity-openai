@@ -3,7 +3,7 @@
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import { Button } from './Button';
-import { toast } from '@/ui/Toast';
+import { toast } from '@/components/ui/Toast';
 
 /**
  * NextJS does not allow to pass function from server -> client components,

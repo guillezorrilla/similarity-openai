@@ -1,11 +1,16 @@
-'use client'
+'use client';
 
 import { FC, useState } from 'react';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/ui/DropdownMenu';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/ui/DropdownMenu';
 import { Button } from './ui/Button';
 import { Loader2 } from 'lucide-react';
-import { toast } from '@/ui/Toast';
-import {useRouter} from 'next/navigation'
+import { toast } from '@/components/ui/Toast';
+import { useRouter } from 'next/navigation';
 import { revokeApiKey } from '@/helpers/revoke-api-key';
 import { createApiKey } from '@/helpers/create-api-key';
 
@@ -28,13 +33,14 @@ const ApiKeyOptions: FC<IApiKeyOptionsProps> = ({ apiKeyId, apiKeyKey }) => {
     } catch (error) {
       toast({
         title: 'Error creating API key',
-        message: 'An error occurred while creating a new API key. Please try again later.',
+        message:
+          'An error occurred while creating a new API key. Please try again later.',
         type: 'error'
-      })
+      });
     } finally {
       setIsCreatingNew(false);
     }
-  }
+  };
 
   const revokeCurrentApiKey = async () => {
     setIsRevoking(true);
@@ -46,13 +52,14 @@ const ApiKeyOptions: FC<IApiKeyOptionsProps> = ({ apiKeyId, apiKeyKey }) => {
     } catch (error) {
       toast({
         title: 'Error revoking API key',
-        message: 'An error occurred while revoking the API key. Please try again later.',
+        message:
+          'An error occurred while revoking the API key. Please try again later.',
         type: 'error'
-      })
+      });
     } finally {
       setIsRevoking(false);
     }
-  }
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger disabled={isCretingNew || isRevoking} asChild>

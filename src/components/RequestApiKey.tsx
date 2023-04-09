@@ -8,7 +8,7 @@ import { Button } from './ui/Button';
 import { Input } from './ui/Input';
 import LargeHeading from './ui/LargeHeading';
 import Paragraph from './ui/Paragraph';
-import { toast } from '@/ui/Toast';
+import { toast } from '@/components/ui/Toast';
 
 interface RequestApiKeyProps {}
 
