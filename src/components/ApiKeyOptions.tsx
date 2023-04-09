@@ -9,7 +9,7 @@ import {
 } from '@/ui/DropdownMenu';
 import { Button } from './ui/Button';
 import { Loader2 } from 'lucide-react';
-import { toast } from '@/components/ui/Toast';
+import { toast } from '@/ui/Toast';
 import { useRouter } from 'next/navigation';
 import { revokeApiKey } from '@/helpers/revoke-api-key';
 import { createApiKey } from '@/helpers/create-api-key';

@@ -32,6 +32,11 @@ const Navbar = async () => {
                 href="/dashboard">
                 Dashboard
               </Link>
+              <Link
+                className={buttonVariants({ variant: 'ghost' })}
+                href="/tryit">
+                Try it out
+              </Link>
               <SignOutButton />
             </>
           ) : (
