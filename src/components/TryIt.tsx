@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Paragraph from './ui/Paragraph';
 import { Input } from './ui/Input';
 import TextArea from './ui/TextArea';
@@ -8,13 +8,14 @@ import { Button } from './ui/Button';
 import { getSimilarity } from '@/helpers/get-similarity';
 import { toast } from './ui/Toast';
 import Code from './Code';
+import { ApiKey } from '@prisma/client';
 
 interface ITryitProps {
-  apiKeyId: string;
+  apiKeyKey: ApiKey;
 }
 
-const TryIt: FC<ITryitProps> = ({ apiKeyId }) => {
-  const [apiKey, setApiKey] = useState<string>(apiKeyId);
+const TryIt: FC<ITryitProps> = ({ apiKeyKey }) => {
+  const [apiKey, setApiKey] = useState<string>(apiKeyKey.key);
   const [text1, setText1] = useState<string>('text1');
   const [text2, setText2] = useState<string>('text2');
   const [isCreating, setIsCreating] = useState<boolean>(false);
@@ -24,6 +25,10 @@ const TryIt: FC<ITryitProps> = ({ apiKeyId }) => {
     text1: string;
     text2: string;
   } | null>(null);
+
+  useEffect(() => {
+    setApiKey(apiKeyKey.key);
+  }, [apiKeyKey]);
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -22,7 +22,7 @@ const page = async () => {
   return (
     <div className="max-w-7xl mx-auto mt-16">
       {activeApiKey ? (
-        <TryIt apiKeyId={activeApiKey.id} />
+        <TryIt apiKeyKey={activeApiKey} />
       ) : (
         <div>Request API Key</div>
       )}
