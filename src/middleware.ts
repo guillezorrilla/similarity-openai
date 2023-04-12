@@ -11,7 +11,7 @@ const redis = new Redis({
 
 const ratelimit = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(5, '1 h')
+  limiter: Ratelimit.slidingWindow(25, '1 h')
 });
 
 export default withAuth(
@@ -42,7 +42,7 @@ export default withAuth(
     const isAuth = !!token;
 
     const isAuthPage = pathname.startsWith('/login');
-    const sensitiveRoutes = ['/dashboard', '/tryit'];
+    const sensitiveRoutes = ['/dashboard', '/tryit', '/messages'];
     if (isAuthPage) {
       if (isAuth) {
         return NextResponse.redirect(new URL('/dashboard', req.url));
@@ -67,5 +67,12 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ['/', '/login', '/tryit/:path*', '/dashboard/:path*', '/api/:path*']
+  matcher: [
+    '/',
+    '/login',
+    '/tryit/:path*',
+    '/messages/:path*',
+    '/dashboard/:path*',
+    '/api/:path*'
+  ]
 };

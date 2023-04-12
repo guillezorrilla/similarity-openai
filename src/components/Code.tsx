@@ -7,7 +7,7 @@ import darkTheme from 'prism-react-renderer/themes/nightOwl';
 import lightTheme from 'prism-react-renderer/themes/nightOwlLight';
 
 interface ICodeProps {
-  code: string;
+  code: any;
   show: boolean;
   language: Language;
   animationDelay?: number;
