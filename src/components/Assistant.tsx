@@ -10,7 +10,6 @@ import Paragraph from './ui/Paragraph';
 import { nanoid } from 'nanoid';
 import { ISelectOptions, Select } from '@/ui/Select';
 import Icons from './Icons';
-import { ButtonBase } from '@mui/material';
 
 interface IAssistantProps {
   apiKeyKey: ApiKey;
@@ -40,7 +39,7 @@ const Assistant: FC<IAssistantProps> = ({ apiKeyKey }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentMessage, setCurrentMessage] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [apiKey, setApiKey] = useState<string>(apiKeyKey.key);
+  // const [apiKey, setApiKey] = useState<string>(apiKeyKey.key);
   const [selectedOption, setSelectedOption] = useState<string>(
     selectOptions[0].value
   );
@@ -53,7 +52,6 @@ const Assistant: FC<IAssistantProps> = ({ apiKeyKey }) => {
         messages,
         assistantType: selectedOption
       });
-      const newId = nanoid();
       setMessages((prev) => [
         ...prev,
         {
